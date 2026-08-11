@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teklif Al — 35 Tekstil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <div class="logo-lockup">
+      <a href="index.html"><img src="logo.png" alt="35 Tekstil logo"></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="okul-kiyafetleri.html">Okul Kıyafetleri</a></li>
+        <li><a href="personel-kiyafetleri.html">Personel Kıyafetleri</a></li>
+        <li><a href="kisiye-ozel-urunler.html">Kişiye Özel Ürünler</a></li>
+        <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+        <li><a href="referanslar.html">Referanslar</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+        <li><a href="teklif-al.html" class="cta-nav active">Teklif Al</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero hero-small">
+  <img class="hero-watermark" src="logo-mono.png" alt="">
+  <div class="wrap" style="position:relative;">
+    <div class="hero-tag">Teklif Al</div>
+    <h1 class="display">İhtiyacınızı bize iletin</h1>
+    <p>Formu doldurun ya da doğrudan telefon/WhatsApp üzerinden ulaşın, size özel teklif hazırlayalım.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">Form</div>
+      <h2 class="section-title display">Teklif formu</h2>
+      <form class="form-card" onsubmit="alert('Form gönderimi için bir alım mekanizması (e-posta servisi / form altyapısı) bağlanması gerekiyor.'); return false;">
+        <div class="form-row">
+          <label for="ad">Ad Soyad</label>
+          <input type="text" id="ad" name="ad" required>
+        </div>
+        <div class="form-row">
+          <label for="tur">Talep Türü</label>
+          <select id="tur" name="tur">
+            <option>Okul Kıyafeti</option>
+            <option>Personel Kıyafeti</option>
+            <option>Kişiye Özel Ürün</option>
+            <option>Diğer</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="telefon">Telefon</label>
+          <input type="tel" id="telefon" name="telefon" required>
+        </div>
+        <div class="form-row">
+          <label for="eposta">E-posta</label>
+          <input type="email" id="eposta" name="eposta">
+        </div>
+        <div class="form-row">
+          <label for="mesaj">Mesajınız</label>
+          <textarea id="mesaj" name="mesaj" placeholder="Ürün, adet ve varsa okul/işletme bilginizi yazın."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold">Gönder</button>
+        <div class="form-note">Not: Bu form şu an gönderim yapmıyor. Gerçek gönderim için bir form/e-posta altyapısı bağlanması gerekiyor.</div>
+      </form>
+    </div>
+
+    <div>
+      <div class="eyebrow">İletişim</div>
+      <h2 class="section-title display">Doğrudan ulaşın</h2>
+      <ul class="contact-list">
+        <li><b>Telefon</b>0XXX XXX XX XX</li>
+        <li><b>WhatsApp</b><a href="https://wa.me/90XXXXXXXXXX" style="color:inherit;">wa.me/90XXXXXXXXXX</a></li>
+        <li><b>E-posta</b>info@35tekstil.com</li>
+        <li><b>Adres</b>Kiraz, İzmir</li>
+        <li><b>Çalışma Saatleri</b>Hafta içi 09:00 – 18:00</li>
+      </ul>
+      <div class="placeholder-note">Yukarıdaki telefon, e-posta ve adres bilgileri taslaktır — gerçek bilgilerini paylaştığında güncellenecek.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <img src="logo-mono.png" alt="35 Tekstil">
+    <ul class="foot-links">
+      <li><a href="okul-kiyafetleri.html">Okul Kıyafetleri</a></li>
+      <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+      <li><a href="referanslar.html">Referanslar</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+    </ul>
+    <ul class="social-links">
+      <li><a href="https://www.instagram.com/35tekstil" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        Instagram
+      </a></li>
+    </ul>
+    <div class="mono">35tekstil.com</div>
+  </div>
+</footer>
+
+</body>
+</html>
