@@ -37,7 +37,7 @@ header{
   padding:14px 0;
 }
 .logo-lockup{display:flex; align-items:center; gap:10px;}
-.logo-lockup img{height:65px; width:auto; display:block;}
+.logo-lockup img{height:84px; width:auto; display:block;}
 .logo-lockup a{display:flex; align-items:center;}
 nav ul{
   list-style:none; display:flex; gap:26px; align-items:center; flex-wrap:wrap;
@@ -52,7 +52,13 @@ nav a.active{color:var(--gold-dark); border-bottom:2px solid var(--gold-dark); p
   font-weight:600;
 }
 .cta-nav:hover{background:var(--navy-2);}
-.nav-toggle{display:none;}
+.nav-toggle{
+  display:none;
+  background:none; border:1px solid var(--black); border-radius:2px;
+  width:42px; height:38px; align-items:center; justify-content:center;
+  cursor:pointer; color:var(--black); flex-shrink:0;
+}
+.nav-toggle svg{width:20px; height:20px;}
 
 /* hero */
 .hero{
@@ -226,7 +232,7 @@ footer{
   background:var(--black); color:#8D8A7E; padding:40px 0; font-size:13px;
 }
 .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
-.foot-row img{height:52px; opacity:1;}
+.foot-row img{height:76px; opacity:1;}
 .foot-links{display:flex; gap:18px; list-style:none; flex-wrap:wrap;}
 .foot-links a{color:#8D8A7E; text-decoration:none;}
 .foot-links a:hover{color:var(--bone);}
@@ -291,6 +297,81 @@ footer{
 .testimonial-card p{font-size:14.5px; color:var(--black); line-height:1.6; font-style:italic;}
 .testimonial-card .who{margin-top:16px; font-size:13px; color:var(--slate); font-weight:600;}
 
+/* breadcrumb */
+.breadcrumb{
+  font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--slate);
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:18px;
+}
+.breadcrumb a{color:var(--slate); text-decoration:none;}
+.breadcrumb a:hover{color:var(--gold-dark);}
+.breadcrumb .sep{color:var(--line);}
+.breadcrumb .current{color:var(--black); font-weight:600;}
+
+/* district / school listing */
+.district-grid{
+  margin-top:44px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+  background:var(--black);
+}
+.district-card{
+  background:var(--white); padding:30px 24px; text-decoration:none; display:block;
+}
+.district-card h3{font-size:20px; font-weight:600; color:var(--black); margin-top:8px;}
+.district-card p{font-size:13.5px; color:var(--slate); margin-top:6px;}
+.district-card .cat-num{font-family:'IBM Plex Mono'; font-size:12px; color:var(--slate);}
+
+.school-grid{
+  margin-top:24px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
+}
+.school-card{
+  border:1px solid var(--line); background:var(--white); padding:22px;
+  text-decoration:none; display:block;
+}
+.school-card h4{font-size:16.5px; font-weight:600; color:var(--black);}
+.school-card span{font-size:13px; color:var(--slate); margin-top:4px; display:block;}
+.school-card:hover{border-color:var(--gold);}
+
+/* product grid */
+.product-grid{
+  margin-top:36px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+}
+.product-card{
+  display:block; text-decoration:none; color:inherit;
+  border:1px solid var(--line); background:var(--white);
+}
+.product-card:hover{border-color:var(--gold);}
+.product-thumb{
+  aspect-ratio:4/5; background:linear-gradient(135deg, var(--bone-2), var(--line));
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.product-thumb svg{width:38%; height:38%; opacity:0.35; color:var(--navy);}
+.product-info{padding:16px 18px 20px;}
+.product-info h4{font-size:15px; font-weight:600; color:var(--black); line-height:1.35;}
+.product-info span{display:block; margin-top:6px; font-size:12.5px; color:var(--slate); font-family:'IBM Plex Mono';}
+
+.product-detail{
+  margin-top:36px;
+  display:grid; grid-template-columns:1fr 1fr; gap:44px;
+}
+.product-detail-thumb{
+  aspect-ratio:4/5; background:linear-gradient(135deg, var(--bone-2), var(--line));
+  display:flex; align-items:center; justify-content:center;
+}
+.product-detail-thumb svg{width:34%; height:34%; opacity:0.35; color:var(--navy);}
+.product-detail h1{font-size:28px; font-weight:600; color:var(--black);}
+.product-detail .price-note{margin-top:10px; font-size:14px; color:var(--slate);}
+.product-detail .desc{margin-top:18px; font-size:14.5px; line-height:1.7; color:var(--black);}
+.product-detail .btn{margin-top:26px;}
+
+@media (max-width: 860px){
+  .district-grid{grid-template-columns:1fr;}
+  .school-grid{grid-template-columns:1fr;}
+  .product-grid{grid-template-columns:repeat(2,1fr);}
+  .product-detail{grid-template-columns:1fr; gap:28px;}
+}
+
 .placeholder-note{
   background:#FBF1DD; border:1px dashed var(--gold-dark); color:var(--gold-dark);
   padding:14px 18px; font-size:13px; margin-top:20px; font-family:'IBM Plex Mono';
@@ -342,11 +423,36 @@ footer{
 }
 
 @media (max-width: 860px){
-  nav ul{gap:16px;}
+  .nav-row{position:relative;}
+  .logo-lockup img{height:58px;}
+  .nav-toggle{display:flex;}
+  header nav{
+    display:none;
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--bone);
+    border-bottom:2px solid var(--black);
+    box-shadow:0 16px 28px rgba(17,17,17,0.14);
+    max-height:calc(100vh - 70px);
+    overflow-y:auto;
+  }
+  header nav.nav-open{display:block;}
+  header nav ul{
+    flex-direction:column; align-items:stretch; gap:0; flex-wrap:nowrap;
+    padding:6px 24px 22px;
+  }
+  header nav ul li{border-bottom:1px solid var(--line);}
+  header nav ul li:last-child{border-bottom:none; margin-top:14px;}
+  header nav a{display:block; padding:15px 2px; font-size:15.5px;}
+  header nav a.cta-nav{display:inline-flex; text-align:center; padding:13px 22px;}
   .hero h1{font-size:38px;}
   .cat-grid{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:repeat(2,1fr);}
   .content-grid, .contact-grid, .testimonial-grid{grid-template-columns:1fr;}
   .process-row{flex-direction:column; gap:24px;}
   .process-row::before{display:none;}
+
+  .foot-row{flex-direction:column; justify-content:center; text-align:center; gap:22px;}
+  .foot-row img{margin:0 auto;}
+  .foot-links{justify-content:center; text-align:center; width:100%;}
+  .social-links{justify-content:center; width:100%;}
 }

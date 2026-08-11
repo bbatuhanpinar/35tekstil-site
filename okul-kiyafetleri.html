@@ -16,7 +16,10 @@
     <div class="logo-lockup">
       <a href="index.html"><img src="logo.png" alt="35 Tekstil logo"></a>
     </div>
-    <nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav id="siteNav">
       <ul>
         <li><a href="okul-kiyafetleri.html" class="active">Okul Kıyafetleri</a></li>
         <li><a href="personel-kiyafetleri.html">Personel Kıyafetleri</a></li>
@@ -44,24 +47,14 @@
     <div class="eyebrow">Okul bul</div>
     <h2 class="section-title display">İlçe ve okula göre filtrele</h2>
 
-    <div class="form-card">
-      <div class="form-row">
-        <label for="ilce">İlçe</label>
-        <select id="ilce" name="ilce">
-          <option>Kiraz</option>
-          <option>Ödemiş</option>
-          <option>Diğer</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <label for="okul">Okul</label>
-        <select id="okul" name="okul">
-          <option>Okulunuzu seçin</option>
-        </select>
-      </div>
-      <a href="teklif-al.html" class="btn btn-gold">Kıyafetleri Göster</a>
-      <div class="placeholder-note">Bu bölüm taslak. Gerçek okul/ilçe listesi ve ürün görselleri eklendiğinde filtre çalışır hale getirilecek.</div>
+    <div class="district-grid">
+      <a href="/okullar/kiraz/" class="district-card">
+        <div class="cat-num mono">İzmir</div>
+        <h3 class="display">Kiraz</h3>
+        <p>Okulunuzu bulun, ürünleri inceleyin →</p>
+      </a>
     </div>
+    <div class="placeholder-note">Şu an sadece Kiraz ilçesi ve örnek bir okul yayında. Diğer ilçe/okul listeni ilettiğinde tamamını ekleriz.</div>
 
     <div class="cat-grid" style="margin-top:60px;">
       <div class="cat-card">
@@ -113,5 +106,6 @@
   </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
