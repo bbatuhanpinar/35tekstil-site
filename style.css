@@ -456,3 +456,8 @@ footer{
   .foot-links{justify-content:center; text-align:center; width:100%;}
   .social-links{justify-content:center; width:100%;}
 }
+
+/* Orta genişlikte menü tek satırda kalsın (SSS eklendi) */
+@media (min-width: 861px) and (max-width: 1180px){ nav ul{gap:18px} }
+@media (min-width: 861px) and (max-width: 1040px){ nav ul{gap:13px} nav a{font-size:13.5px} .cta-nav{padding:10px 15px} }
+@media (min-width: 861px) and (max-width: 920px){ nav ul{gap:10px} nav a{font-size:13px} .cta-nav{padding:9px 12px} }
