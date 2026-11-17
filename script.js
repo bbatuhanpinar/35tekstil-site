@@ -46,6 +46,8 @@
   else if (parcalar[0] === 'teklif-al') sayfaTuru = 'teklif_formu';
   else if (parcalar[0] === 'tesekkurler') sayfaTuru = 'tesekkur';
   else if (parcalar[0] === 'iletisim') sayfaTuru = 'iletisim';
+  else if (parcalar[0] === 'sss') sayfaTuru = 'sss';
+  else if (/^(kvkk|cerez-politikasi)$/.test(parcalar[0])) sayfaTuru = 'yasal';
 
   window.dataLayer.push({ sayfa_turu: sayfaTuru });
 
@@ -217,19 +219,21 @@
   }
 
   // ---------- Çerez bandı ----------
-  function izinBandi() {
-    if (izinOku()) return;
+  function izinBandi(zorla) {
+    if (izinOku() && !zorla) return;
+    if (document.getElementById('cerez-bandi')) return;
     var bant = document.createElement('div');
     bant.id = 'cerez-bandi';
     bant.setAttribute('role', 'dialog');
     bant.setAttribute('aria-label', 'Çerez tercihi');
     bant.innerHTML =
-      '<p>Sitemizi geliştirmek ve reklamlarımızın etkisini ölçmek için çerezler kullanıyoruz. Onay vermezseniz yalnızca zorunlu çerezler kullanılır.</p>' +
+      '<p>Sitemizi geliştirmek ve reklamlarımızın etkisini ölçmek için çerezler kullanıyoruz. Onay vermezseniz yalnızca zorunlu çerezler kullanılır. Ayrıntılar: <a href="/cerez-politikasi">Çerez Politikası</a> · <a href="/kvkk">KVKK Aydınlatma Metni</a></p>' +
       '<div class="cerez-dugmeler"><button type="button" class="cerez-red">Reddet</button><button type="button" class="cerez-kabul">Kabul Et</button></div>';
     var stil = document.createElement('style');
     stil.textContent =
       '#cerez-bandi{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:720px;margin:0 auto;background:#16233F;color:#fff;border-radius:10px;padding:16px 18px;box-shadow:0 8px 30px rgba(0,0,0,.25);display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:14px;line-height:1.5}' +
       '#cerez-bandi p{margin:0;flex:1 1 320px}' +
+      '#cerez-bandi a{color:#C9974B;text-decoration:underline}' +
       '#cerez-bandi .cerez-dugmeler{display:flex;gap:8px;flex:0 0 auto}' +
       '#cerez-bandi button{font:inherit;font-weight:600;border-radius:6px;padding:9px 16px;cursor:pointer;border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff}' +
       '#cerez-bandi .cerez-kabul{background:#C9974B;border-color:#C9974B;color:#16233F}';
@@ -238,12 +242,28 @@
     function karar(evet) {
       izinYaz(evet ? 'evet' : 'hayir');
       gtag('consent', 'update', izinDurumu(evet));
+      if (!evet) gaCerezleriniSil();
       olay('cerez_tercihi', { izin: evet ? 'kabul' : 'red' });
       bant.remove();
     }
     bant.querySelector('.cerez-kabul').addEventListener('click', function () { karar(true); });
     bant.querySelector('.cerez-red').addEventListener('click', function () { karar(false); });
   }
+
+  // Reddedilince daha önce kaydedilmiş Google Analytics çerezlerini temizle.
+  function gaCerezleriniSil() {
+    document.cookie.split(';').forEach(function (c) {
+      var ad = c.split('=')[0].trim();
+      if (/^_ga/.test(ad)) {
+        ['', '.35tekstil.com', '35tekstil.com'].forEach(function (alan) {
+          document.cookie = ad + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + (alan ? '; domain=' + alan : '');
+        });
+      }
+    });
+  }
+
+  // Çerez Politikası sayfasındaki "Çerez tercihimi değiştir" düğmesi için.
+  window.cerezTercihiniAc = function () { izinBandi(true); };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', dinleyicileriBagla);
   else dinleyicileriBagla();
